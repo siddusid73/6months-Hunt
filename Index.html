@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6-Month Full Stack + AI + Cloud Roadmap</title>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f6f5f0;--bg3:#f0ede6;
+  --text:#1a1a1a;--text2:#6b6b6b;--text3:#9b9b9b;--border:rgba(0,0,0,0.10);
+  --blue-bg:#E6F1FB;--blue:#185FA5;--blue-dk:#0C447C;
+  --green-bg:#EAF3DE;--green:#3B6D11;--green-dk:#27500A;
+  --purple-bg:#EEEDFE;--purple:#534AB7;--purple-dk:#3C3489;
+  --amber-bg:#FAEEDA;--amber:#854F0B;--amber-dk:#633806;
+  --red-bg:#FCEBEB;--red:#A32D2D;
+  --r:8px;--rl:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg3);color:var(--text);line-height:1.6}
+.page{max-width:920px;margin:0 auto;padding:2rem 1.25rem}
+.hero{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rl);padding:2.5rem 1.5rem 2rem;text-align:center;margin-bottom:1.5rem}
+.hero-emoji{font-size:48px;margin-bottom:12px}
+.hero h1{font-size:24px;font-weight:700;color:var(--text);margin-bottom:6px}
+.hero p{font-size:13px;color:var(--text2);margin-bottom:16px}
+.hero-badge{display:inline-block;background:var(--blue-bg);color:var(--blue-dk);font-size:13px;font-weight:600;padding:7px 20px;border-radius:20px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
+.stat{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rl);padding:16px;text-align:center}
+.stat-n{font-size:28px;font-weight:700;color:var(--text)}
+.stat-l{font-size:12px;color:var(--text2);margin-top:3px}
+.nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem;background:var(--bg);padding:12px;border-radius:var(--rl);border:0.5px solid var(--border)}
+.ntab{padding:8px 14px;border-radius:var(--r);font-size:13px;cursor:pointer;border:0.5px solid var(--border);background:transparent;color:var(--text2);transition:all .15s;font-family:inherit}
+.ntab.on{background:var(--blue-bg);color:var(--blue-dk);border-color:transparent;font-weight:600}
+.pg{display:none}.pg.on{display:block}
+.lbl{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin:1.4rem 0 .7rem}
+.card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rl);padding:16px 18px;margin-bottom:10px}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.ib{width:38px;height:38px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+.card-title{font-size:15px;font-weight:700;color:var(--text)}
+.card-sub{font-size:13px;color:var(--text2);line-height:1.65}
+.tag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;margin:4px 3px 0 0;font-weight:500}
+.t-b{background:var(--blue-bg);color:var(--blue-dk)}.t-g{background:var(--green-bg);color:var(--green-dk)}
+.t-p{background:var(--purple-bg);color:var(--purple-dk)}.t-a{background:var(--amber-bg);color:var(--amber-dk)}
+.t-gr{background:var(--bg2);color:#444}
+.ibox{border-left:3px solid var(--blue);background:var(--blue-bg);padding:12px 16px;font-size:13px;color:var(--blue-dk);line-height:1.65;margin-bottom:1rem;border-radius:0 var(--r) var(--r) 0}
+.obox{border-left:3px solid var(--green);background:var(--green-bg);padding:12px 16px;font-size:13px;color:var(--green-dk);line-height:1.65;margin-bottom:1rem;border-radius:0 var(--r) var(--r) 0}
+.wbox{border-left:3px solid var(--amber);background:var(--amber-bg);padding:12px 16px;font-size:13px;color:var(--amber-dk);line-height:1.65;margin-bottom:1rem;border-radius:0 var(--r) var(--r) 0}
+.pbox{border-left:3px solid var(--purple);background:var(--purple-bg);padding:12px 16px;font-size:13px;color:var(--purple-dk);line-height:1.65;margin-bottom:1rem;border-radius:0 var(--r) var(--r) 0}
+.phase-strip{display:flex;margin-bottom:1.25rem;border-radius:var(--r);overflow:hidden;border:0.5px solid var(--border);background:var(--bg)}
+.ph{flex:1;padding:13px 8px;text-align:center;cursor:pointer;border-right:0.5px solid var(--border);transition:background .15s}
+.ph:last-child{border-right:none}.ph.on{background:var(--blue-bg)}
+.ph-num{font-size:10px;color:var(--text3);margin-bottom:2px}.ph.on .ph-num{color:var(--blue)}
+.ph-title{font-size:13px;font-weight:700;color:var(--text)}.ph.on .ph-title{color:var(--blue-dk)}
+.ph-dur{font-size:11px;color:var(--text3);margin-top:2px}.ph.on .ph-dur{color:var(--blue)}
+.pcon{display:none}.pcon.on{display:block}
+.wr{display:flex;gap:0;margin-bottom:8px;border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden}
+.wb{min-width:80px;padding:12px 8px;text-align:center;font-size:11px;font-weight:700;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.wbody{flex:1;padding:12px 14px;background:var(--bg)}
+.wt{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+.wd{font-size:12px;color:var(--text2);line-height:1.6}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:1rem}
+.ts{border-radius:var(--r);padding:13px 14px}
+.ts-t{font-size:11px;font-weight:700;color:var(--text3);margin-bottom:4px}
+.ts-k{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.ts-d{font-size:12px;color:var(--text2);line-height:1.55}
+.ts-fix{background:var(--bg2)}.ts-main{background:var(--blue-bg);border:1.5px solid var(--blue)}
+.ts-gym{background:var(--green-bg)}.ts-eve{background:var(--purple-bg)}
+.rr{display:flex;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--border);align-items:flex-start}
+.rr:last-child{border-bottom:none}
+.ri{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;margin-top:1px}
+.ri-g{background:var(--green-bg)}.ri-r{background:var(--red-bg)}.ri-a{background:var(--amber-bg)}
+.rt{font-size:13px;font-weight:700;color:var(--text)}
+.rd{font-size:12px;color:var(--text2);line-height:1.6;margin-top:3px}
+.mr{display:flex;gap:14px;padding:10px 0;border-bottom:0.5px solid var(--border);align-items:flex-start}
+.mr:last-child{border-bottom:none}
+.mm{font-size:11px;font-weight:700;min-width:60px;flex-shrink:0;margin-top:3px}
+.mt{font-size:13px;font-weight:700;color:var(--text)}
+.md{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.55}
+.rrow{display:flex;gap:12px;padding:9px 0;border-bottom:0.5px solid var(--border);align-items:center}
+.rrow:last-child{border-bottom:none}
+.ricon{width:32px;height:32px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
+.rtitle{font-size:13px;font-weight:700;color:var(--text)}
+.rsub{font-size:12px;color:var(--text2)}
+.rtag{font-size:11px;padding:3px 9px;border-radius:20px;background:var(--blue-bg);color:var(--blue-dk);margin-left:auto;white-space:nowrap;flex-shrink:0;font-weight:500}
+.cmp{width:100%;border-collapse:collapse;margin-bottom:1rem}
+.cmp th{background:var(--blue-bg);color:var(--blue-dk);font-size:12px;font-weight:700;padding:9px 12px;text-align:left;border:0.5px solid var(--border)}
+.cmp td{font-size:13px;color:var(--text2);padding:9px 12px;border:0.5px solid var(--border)}
+.cmp tr:nth-child(even) td{background:var(--bg2)}
+.you{color:var(--green-dk)!important;font-weight:700}
+.pb{height:5px;background:var(--bg2);border-radius:4px;margin:8px 0;overflow:hidden}
+.pbf{height:100%;border-radius:4px;background:var(--blue)}
+.footer{text-align:center;padding:2rem;font-size:12px;color:var(--text3);margin-top:2rem}
+a{color:var(--blue)}
+@media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}.phase-strip{flex-direction:column}.ph{border-right:none;border-bottom:0.5px solid var(--border)}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="hero">
+  <div class="hero-emoji">🚀</div>
+  <h1>Full Stack + AI + Cloud — 6-Month Roadmap</h1>
+  <p>Built around your real schedule · College 9AM–12PM · Gym 6–8PM · 7 hours of study daily</p>
+  <div class="hero-badge">🎯 Target: Job in 6 Months — Full Stack AI Cloud Engineer</div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-n">6</div><div class="stat-l">Months to job</div></div>
+  <div class="stat"><div class="stat-n">7h</div><div class="stat-l">Study daily</div></div>
+  <div class="stat"><div class="stat-n">4</div><div class="stat-l">Phases</div></div>
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">Live projects</div></div>
+</div>
+
+<div class="nav">
+  <button class="ntab on" onclick="sw('overview',this)">🗺 Overview</button>
+  <button class="ntab" onclick="sw('possible',this)">✅ 6M Possible?</button>
+  <button class="ntab" onclick="sw('daily',this)">⏱ Daily Schedule</button>
+  <button class="ntab" onclick="sw('phase',this)">📋 Phase Plan</button>
+  <button class="ntab" onclick="sw('discipline',this)">🛡 Discipline</button>
+  <button class="ntab" onclick="sw('milestones',this)">🏆 Milestones</button>
+  <button class="ntab" onclick="sw('resources',this)">📚 Resources</button>
+</div>
+
+<div id="overview" class="pg on">
+  <div class="ibox">Target: Full Stack + AI Integration + Cloud/DevOps Engineer — the most hireable profile in 2026. With 7 hours/day and your Java background, 6 months is the right target.</div>
+  <div class="lbl">Your 4-phase journey</div>
+  <div class="card"><div class="card-head"><div class="ib" style="background:var(--blue-bg)">💻</div><div><div class="card-title">Phase 1 — Foundation (Month 1–2)</div><div style="font-size:12px;color:var(--text2)">DSA + Java OOP + Git + Linux + HTTP + Databases</div></div></div><div class="pb"><div class="pbf" style="width:25%"></div></div><div class="card-sub">The unbreakable base. DSA every day. Git, Linux, HTTP, REST, SQL — before any framework.</div><div style="margin-top:8px"><span class="tag t-b">DSA daily</span><span class="tag t-b">Java OOP</span><span class="tag t-b">Git</span><span class="tag t-b">Linux</span><span class="tag t-b">SQL</span></div></div>
+  <div class="card"><div class="card-head"><div class="ib" style="background:var(--green-bg)">🌐</div><div><div class="card-title">Phase 2 — Full Stack (Month 3–4)</div><div style="font-size:12px;color:var(--text2)">React + Spring Boot + Docker + 2 live projects</div></div></div><div class="pb"><div class="pbf" style="width:50%"></div></div><div class="card-sub">Build real apps end-to-end. React + Spring Boot (Java) + PostgreSQL + JWT + Docker. Two projects deployed live.</div><div style="margin-top:8px"><span class="tag t-g">React</span><span class="tag t-g">Spring Boot</span><span class="tag t-g">PostgreSQL</span><span class="tag t-g">Docker</span></div></div>
+  <div class="card"><div class="card-head"><div class="ib" style="background:var(--purple-bg)">🤖</div><div><div class="card-title">Phase 3 — AI + Cloud (Month 5)</div><div style="font-size:12px;color:var(--text2)">Python + ML + LLM APIs + AWS</div></div></div><div class="pb"><div class="pbf" style="width:75%"></div></div><div class="card-sub">The phase that separates you. LangChain, RAG, AWS deploy, Cloud Practitioner cert. Rare at junior level.</div><div style="margin-top:8px"><span class="tag t-p">Python</span><span class="tag t-p">LangChain</span><span class="tag t-p">OpenAI API</span><span class="tag t-p">AWS</span></div></div>
+  <div class="card"><div class="card-head"><div class="ib" style="background:var(--amber-bg)">⚙️</div><div><div class="card-title">Phase 4 — DevOps + Jobs (Month 6)</div><div style="font-size:12px;color:var(--text2)">CI/CD + Kubernetes + System Design + apply</div></div></div><div class="pb"><div class="pbf" style="width:100%"></div></div><div class="card-sub">Complete the stack. CI/CD, K8s, system design. Apply 10 companies/week from Week 21. First offer by Week 24.</div><div style="margin-top:8px"><span class="tag t-a">CI/CD</span><span class="tag t-a">Kubernetes</span><span class="tag t-a">System Design</span><span class="tag t-a">Apply</span></div></div>
+</div>
+
+<div id="possible" class="pg">
+  <div class="obox"><strong>Yes — and here is the exact math.</strong> Most people have 1–2 hours/day. You have 7. That is 3–4x more than average. 6 months is not just possible — it is the right target for you.</div>
+  <div class="lbl">The comparison</div>
+  <table class="cmp">
+    <tr><th>Metric</th><th>Average Candidate</th><th>You</th></tr>
+    <tr><td>Daily study time</td><td>1–2 hours</td><td class="you">7 hours ✅</td></tr>
+    <tr><td>Timeline to job-ready</td><td>12–18 months</td><td class="you">6 months ✅</td></tr>
+    <tr><td>DSA problems/week</td><td>5–7 problems</td><td class="you">14+ problems ✅</td></tr>
+    <tr><td>Java background</td><td>Starting from scratch</td><td class="you">Already know Java ✅</td></tr>
+    <tr><td>Study structure</td><td>No plan, random</td><td class="you">Clear 6-month plan ✅</td></tr>
+  </table>
+  <div class="wbox"><strong>The only condition:</strong> show up every single day. Missing days is the only thing that makes 6 months impossible. One missed day is fine. Two in a row breaks the habit. <strong>Never miss twice.</strong></div>
+  <div class="lbl">What you will have by Month 6</div>
+  <div class="card" style="background:var(--bg2)">
+    <div class="rr"><div class="ri ri-g">✅</div><div><div class="rt">200 LeetCode problems solved</div><div class="rd">All 12 patterns mastered. Can solve Medium in under 20 min.</div></div></div>
+    <div class="rr"><div class="ri ri-g">✅</div><div><div class="rt">3 live deployed projects on GitHub</div><div class="rd">Full stack app, AI-integrated app, ML model — all with CI/CD pipelines.</div></div></div>
+    <div class="rr"><div class="ri ri-g">✅</div><div><div class="rt">AWS Cloud Practitioner certified</div><div class="rd">Real credential on resume. Opens doors at Amazon, Infosys, TCS, startups.</div></div></div>
+    <div class="rr"><div class="ri ri-g">✅</div><div><div class="rt">50+ job applications sent</div><div class="rd">With strong portfolio and DSA skills, you will get interviews.</div></div></div>
+    <div class="rr"><div class="ri ri-g">✅</div><div><div class="rt">First offer received</div><div class="rd">Then negotiate. Never accept the first number.</div></div></div>
+  </div>
+</div>
+
+<div id="daily" class="pg">
+  <div class="ibox">Every block mapped to your real timetable. Your study time: <strong>1:30–6:00 PM (4.5h) + 8:30–11:00 PM (2.5h) = 7 hours daily.</strong></div>
+  <div class="lbl">Morning — fixed blocks</div>
+  <div class="tgrid">
+    <div class="ts ts-fix"><div class="ts-t">🌅 6:30–7:00 AM</div><div class="ts-k">Wake up + freshen up</div><div class="ts-d">No phone first 20 min. Cold water, stretch. Set one goal. Open Notion.</div></div>
+    <div class="ts ts-fix"><div class="ts-t">🚌 7:00–9:00 AM</div><div class="ts-k">Travel to college</div><div class="ts-d">Listen to tech podcast, review yesterday's notes on phone, or think through a problem.</div></div>
+    <div class="ts ts-fix"><div class="ts-t">🏫 9:00–12:00 PM</div><div class="ts-k">College classes</div><div class="ts-d">Attend fully. No distractions. What you learn here supports your foundation.</div></div>
+    <div class="ts ts-fix"><div class="ts-t">🍱 12:00–1:30 PM</div><div class="ts-k">Travel back + lunch</div><div class="ts-d">Use commute to review flashcards or watch a short NeetCode explanation on phone.</div></div>
+  </div>
+  <div class="lbl">Afternoon — main study block 🔥 (4.5 hours)</div>
+  <div class="tgrid">
+    <div class="ts ts-main"><div class="ts-t">🧠 1:30–2:30 PM</div><div class="ts-k">DSA — 1 hour</div><div class="ts-d">One LeetCode problem. No solution until 20 min of trying. Solve → understand → note pattern. Every single day.</div></div>
+    <div class="ts ts-main"><div class="ts-t">📖 2:30–4:30 PM</div><div class="ts-k">Learn — 2 hours</div><div class="ts-d">Current phase topic. Watch + code simultaneously. Never watch without IDE open. Build same day.</div></div>
+    <div class="ts ts-main"><div class="ts-t">💻 4:30–5:50 PM</div><div class="ts-k">Build — 1.5 hours</div><div class="ts-d">Work on current project. Every session = 1 GitHub commit. No commit = day incomplete.</div></div>
+    <div class="ts ts-fix"><div class="ts-t">⏱ 5:50–6:00 PM</div><div class="ts-k">Wrap up + push</div><div class="ts-d">Save work, push GitHub, note what to continue tomorrow.</div></div>
+  </div>
+  <div class="lbl">Gym — fixed 💪</div>
+  <div class="tgrid">
+    <div class="ts ts-gym"><div class="ts-t">🏋️ 6:00–8:00 PM</div><div class="ts-k">Gym</div><div class="ts-d">Full focus. Physical health improves focus and learning quality directly. Do not skip it.</div></div>
+    <div class="ts ts-fix"><div class="ts-t">🍽 8:00–8:30 PM</div><div class="ts-k">Dinner + rest</div><div class="ts-d">Eat and decompress. Do not open laptop yet. 30 min brain reset.</div></div>
+  </div>
+  <div class="lbl">Evening — study block 🌙 (2.5 hours)</div>
+  <div class="tgrid">
+    <div class="ts ts-eve"><div class="ts-t">🔄 8:30–9:30 PM</div><div class="ts-k">Revision + weak spots</div><div class="ts-d">Revisit today's problem or concept. Redo anything unclear. This is how memory sticks long-term.</div></div>
+    <div class="ts ts-eve"><div class="ts-t">🔨 9:30–10:30 PM</div><div class="ts-k">Project / phase work</div><div class="ts-d">Continue project features. Execution only — no new topics this late. Smaller focused session.</div></div>
+    <div class="ts ts-eve"><div class="ts-t">📓 10:30–11:00 PM</div><div class="ts-k">Daily log + plan</div><div class="ts-d">Notion: learned / confused / tomorrow. Set tomorrow goal. Close everything.</div></div>
+    <div class="ts ts-fix"><div class="ts-t">🌙 11:00 PM</div><div class="ts-k">Sleep — hard cutoff</div><div class="ts-d">Phone outside room. 7 hours. Sleep consolidates learning — it is part of the plan.</div></div>
+  </div>
+  <div class="lbl">Weekend</div>
+  <div class="tgrid">
+    <div class="ts ts-main"><div class="ts-t">🔨 Sat 1:30–5:30 PM</div><div class="ts-k">Deep project work — 4h</div><div class="ts-d">Uninterrupted build session. Major feature. Phone silent, all notifications off.</div></div>
+    <div class="ts ts-main"><div class="ts-t">🎯 Sat 8:30–10:30 PM</div><div class="ts-k">Mock interview practice</div><div class="ts-d">Timed problems, explain solutions out loud. Week 13+ onwards.</div></div>
+    <div class="ts ts-eve"><div class="ts-t">🔄 Sun 1:30–4:00 PM</div><div class="ts-k">Weekly revision</div><div class="ts-d">Redo any problem you could not solve from memory. Review week's concepts.</div></div>
+    <div class="ts ts-eve"><div class="ts-t">📋 Sun 4:00–5:30 PM</div><div class="ts-k">Weekly planning</div><div class="ts-d">Review milestones. Plan next week in Notion. Set 3 goals for Monday.</div></div>
+  </div>
+  <div class="lbl">The 3 daily non-negotiables</div>
+  <div class="card" style="background:var(--bg2)">
+    <div class="rr"><div class="ri ri-g">✅</div><div><div class="rt">1 LeetCode problem solved — no matter what</div><div class="rd">Even on bad days. Even on weekends. No exceptions ever.</div></div></div>
+    <div class="rr"><div class="ri ri-g">✅</div><div><div class="rt">1 GitHub commit pushed</div><div class="rd">Build something every day. Green squares = visible consistency to every recruiter.</div></div></div>
+    <div class="rr"><div class="ri ri-g">✅</div><div><div class="rt">Notion daily log updated</div><div class="rd">Learned / confused / tomorrow. 5 minutes. Transforms retention over months.</div></div></div>
+  </div>
+</div>
+
+<div id="phase" class="pg">
+  <div class="phase-strip">
+    <div class="ph on" onclick="sph('p1',this)"><div class="ph-num">Phase 1</div><div class="ph-title">Foundation</div><div class="ph-dur">Month 1–2</div></div>
+    <div class="ph" onclick="sph('p2',this)"><div class="ph-num">Phase 2</div><div class="ph-title">Full Stack</div><div class="ph-dur">Month 3–4</div></div>
+    <div class="ph" onclick="sph('p3',this)"><div class="ph-num">Phase 3</div><div class="ph-title">AI + Cloud</div><div class="ph-dur">Month 5</div></div>
+    <div class="ph" onclick="sph('p4',this)"><div class="ph-num">Phase 4</div><div class="ph-title">DevOps + Jobs</div><div class="ph-dur">Month 6</div></div>
+  </div>
+  <div id="p1" class="pcon on">
+    <div class="ibox">DSA runs at 1:30–2:30 PM every single day. 2:30–4:30 PM is for the topic below.</div>
+    <div class="wr"><div class="wb" style="background:var(--blue-bg);color:var(--blue-dk)">Wk 1–2</div><div class="wbody"><div class="wt">Java OOP Mastery</div><div class="wd">Classes, interfaces, inheritance, polymorphism, generics, collections (ArrayList, HashMap, PriorityQueue, ArrayDeque). Write code every day.</div><div style="margin-top:6px"><span class="tag t-b">Java</span><span class="tag t-gr">Collections</span></div></div></div>
+    <div class="wr"><div class="wb" style="background:var(--blue-bg);color:var(--blue-dk)">Wk 3–4</div><div class="wbody"><div class="wt">Git + GitHub + Linux CLI</div><div class="wd">Branching, merging, PRs, rebasing. Linux navigation, SSH, processes. Never commit to main. Daily tools forever.</div><div style="margin-top:6px"><span class="tag t-b">Git</span><span class="tag t-b">GitHub</span><span class="tag t-b">Bash</span></div></div></div>
+    <div class="wr"><div class="wb" style="background:var(--blue-bg);color:var(--blue-dk)">Wk 5–6</div><div class="wbody"><div class="wt">HTTP + REST + Databases</div><div class="wd">DNS, TCP/IP, HTTP methods, REST principles. PostgreSQL: JOINs, indexes, transactions. Write 40 SQL queries by hand.</div><div style="margin-top:6px"><span class="tag t-b">HTTP</span><span class="tag t-b">PostgreSQL</span><span class="tag t-gr">Postman</span></div></div></div>
+    <div class="wr"><div class="wb" style="background:var(--blue-bg);color:var(--blue-dk)">Wk 7–8</div><div class="wbody"><div class="wt">Design Patterns + DSA Intensive</div><div class="wd">SOLID principles. Singleton, Factory, Observer, Strategy in Java. DSA: Trees, Graphs, Binary Search, DP.</div><div style="margin-top:6px"><span class="tag t-b">SOLID</span><span class="tag t-b">LeetCode</span><span class="tag t-gr">Patterns</span></div></div></div>
+    <div class="obox" style="margin-top:12px">Target by Month 2: 100 problems solved. All 12 patterns identifiable in 3 minutes.</div>
+  </div>
+  <div id="p2" class="pcon">
+    <div class="obox">Build real projects — not tutorials. Every week = working code on GitHub. 4:30–5:50 PM is sacred build time.</div>
+    <div class="wr"><div class="wb" style="background:var(--green-bg);color:var(--green-dk)">Wk 9–10</div><div class="wbody"><div class="wt">React Fundamentals</div><div class="wd">Components, hooks (useState, useEffect, useContext), React Router, Tailwind. Build a weather app with real API — type everything, no copy-paste. Deploy on Vercel.</div><div style="margin-top:6px"><span class="tag t-g">React</span><span class="tag t-g">Hooks</span><span class="tag t-gr">Tailwind</span></div></div></div>
+    <div class="wr"><div class="wb" style="background:var(--green-bg);color:var(--green-dk)">Wk 11–12</div><div class="wbody"><div class="wt">Spring Boot Backend</div><div class="wd">REST APIs, controllers, services, JPA/Hibernate with PostgreSQL. Full CRUD REST API for blog or task manager.</div><div style="margin-top:6px"><span class="tag t-g">Spring Boot</span><span class="tag t-g">JPA</span><span class="tag t-gr">Maven</span></div></div></div>
+    <div class="wr"><div class="wb" style="background:var(--green-bg);color:var(--green-dk)">Wk 13–14</div><div class="wbody"><div class="wt">🏆 Project 1 — Full Stack App (LIVE)</div><div class="wd">React + Spring Boot + PostgreSQL + JWT Auth. Deploy on Render or Railway. Real users can register and use it. Add to resume immediately.</div><div style="margin-top:6px"><span class="tag t-g">Full Stack</span><span class="tag t-g">JWT</span><span class="tag t-g">Deploy</span></div></div></div>
+    <div class="wr"><div class="wb" style="background:var(--green-bg);color:var(--green-dk)">Wk 15–16</div><div class="wbody"><div class="wt">🏆 Docker + Project 2</div><div class="wd">Dockerise Project 1. docker-compose. Build Project 2 (real-time or e-commerce). Redux/Zustand. Both projects one command to run.</div><div style="margin-top:6px"><span class="tag t-g">Docker</span><span class="tag t-g">Project 2</span><span class="tag t-gr">Redux</span></div></div></div>
+    <div class="obox" style="margin-top:12px">Target by Month 4: 150 problems. Medium under 20 min. First Hard solved.</div>
+  </div>
+  <div id="p3" class="pcon">
+    <div class="pbox">Full stack + AI + cloud at junior level is rare. This is your competitive advantage — and exactly what companies are paying for in 2026.</div>
+    <div class="wr"><div class="wb" style="background:var(--purple-bg);color:var(--purple-dk)">Wk 17–18</div><div class="wbody"><div class="wt">Python + ML Fundamentals</div><div class="wd">Python OOP, Pandas, NumPy — 1 week to feel natural from Java. Scikit-learn: regression, classification. Real model on Kaggle with clear README.</div><div style="margin-top:6px"><span class="tag t-p">Python</span><span class="tag t-p">Scikit-learn</span><span class="tag t-gr">Kaggle</span></div></div></div>
+    <div class="wr"><div class="wb" style="background:var(--purple-bg);color:var(--purple-dk)">Wk 19–20</div><div class="wbody"><div class="wt">🏆 Project 3 — LLM Integration + AWS (Showpiece)</div><div class="wd">OpenAI/Anthropic APIs, LangChain, RAG pipelines, vector databases. AI chatbot in full stack app. Deploy on AWS. Book and pass Cloud Practitioner exam.</div><div style="margin-top:6px"><span class="tag t-p">LangChain</span><span class="tag t-p">OpenAI API</span><span class="tag t-p">AWS</span></div></div></div>
+    <div class="pbox" style="margin-top:12px">Evening slot (8:30–10:30 PM) in Month 5 = AWS Cloud Practitioner study. 3 weeks study, book exam, pass it. Goes on resume immediately.</div>
+  </div>
+  <div id="p4" class="pcon">
+    <div class="wbox">Apply from Week 21. Do not wait. Rejection is data, not failure. Interviews teach more than any course.</div>
+    <div class="wr"><div class="wb" style="background:var(--amber-bg);color:var(--amber-dk)">Wk 21–22</div><div class="wbody"><div class="wt">CI/CD + Kubernetes + Portfolio Polish</div><div class="wd">GitHub Actions on all 3 projects: auto-test and auto-deploy. Kubernetes basics. Clean READMEs with screenshots and live links. Resume per role.</div><div style="margin-top:6px"><span class="tag t-a">GitHub Actions</span><span class="tag t-a">Kubernetes</span><span class="tag t-gr">Resume</span></div></div></div>
+    <div class="wr"><div class="wb" style="background:var(--amber-bg);color:var(--amber-dk)">Wk 23–24</div><div class="wbody"><div class="wt">System Design + Mock Interviews + Apply Hard</div><div class="wd">HLD: URL shortener, Twitter, chat app. Redis, load balancing. 3 mock interviews/week on Pramp. 10 applications/week customised. 6 STAR stories ready.</div><div style="margin-top:6px"><span class="tag t-a">System Design</span><span class="tag t-a">Pramp</span><span class="tag t-a">Apply</span></div></div></div>
+    <div class="obox" style="margin-top:12px">Target by Month 6: 200 problems. 50+ applications sent. First offer received.</div>
+  </div>
+</div>
+
+<div id="discipline" class="pg">
+  <div class="wbox">Most people fail not because they are not smart enough — they fail because distractions win on bad days. These rules protect you from yourself.</div>
+  <div class="lbl">Always do these ✅</div>
+  <div class="card">
+    <div class="rr"><div class="ri ri-g">📵</div><div><div class="rt">Phone in another room — always</div><div class="rd">Not face-down on desk. In another room. Every notification causes a 23-minute focus interruption.</div></div></div>
+    <div class="rr"><div class="ri ri-g">🚫</div><div><div class="rt">Block social media during study hours</div><div class="rd">Use Cold Turkey or Freedom. Instagram Reels and YouTube Shorts are engineered to steal your attention. Block them.</div></div></div>
+    <div class="rr"><div class="ri ri-g">⌨️</div><div><div class="rt">Code first, watch later</div><div class="rd">Never watch a tutorial without IDE open. Watching without typing is entertainment, not learning.</div></div></div>
+    <div class="rr"><div class="ri ri-g">🎯</div><div><div class="rt">One topic at a time — finish before moving on</div><div class="rd">Jumping ahead = knowing a little about everything, mastering nothing.</div></div></div>
+    <div class="rr"><div class="ri ri-g">📣</div><div><div class="rt">Tell someone your daily goal each morning</div><div class="rd">Text a friend or post in Discord. Public accountability is more powerful than any app.</div></div></div>
+    <div class="rr"><div class="ri ri-g">🔁</div><div><div class="rt">Revisit problems — Day 3, Day 7, Day 14</div><div class="rd">You will forget. That is normal. The fix is spaced repetition. A problem you forgot and re-solved sticks forever.</div></div></div>
+  </div>
+  <div class="lbl">Never do these ❌</div>
+  <div class="card">
+    <div class="rr"><div class="ri ri-r">❌</div><div><div class="rt">Tutorial hell</div><div class="rd">After any tutorial: close it and rebuild from scratch. If you cannot, you did not learn it.</div></div></div>
+    <div class="rr"><div class="ri ri-r">❌</div><div><div class="rt">Switch frameworks mid-phase</div><div class="rd">Every switch resets muscle memory and costs 2 weeks. Commit to the plan. No exceptions.</div></div></div>
+    <div class="rr"><div class="ri ri-r">❌</div><div><div class="rt">Compare yourself to others online</div><div class="rd">Compare only to who you were last week. That is the only meaningful metric.</div></div></div>
+    <div class="rr"><div class="ri ri-r">❌</div><div><div class="rt">Skip sleep to study more</div><div class="rd">5 focused hours beats 9 exhausted hours. Sleep consolidates memory. Part of the plan.</div></div></div>
+    <div class="rr"><div class="ri ri-r">❌</div><div><div class="rt">Miss 2 days in a row</div><div class="rd">One missed day fine. Two breaks the habit loop. Never miss twice. No exceptions, no negotiations.</div></div></div>
+    <div class="rr"><div class="ri ri-r">❌</div><div><div class="rt">Wait until you feel ready to apply</div><div class="rd">You will never feel fully ready. Apply from Week 21 regardless.</div></div></div>
+  </div>
+</div>
+
+<div id="milestones" class="pg">
+  <div class="obox">Each milestone is a gate. Reach it before moving on. These are not soft targets.</div>
+  <div class="lbl">Month 1–2 — Foundation gates</div>
+  <div class="card">
+    <div class="mr"><span class="mm" style="color:var(--blue)">Month 1</span><div><div class="mt">50 LeetCode problems solved — not watched, solved</div><div class="md">30 Easy + 20 Medium minimum. Solve Easy under 15 min without hints.</div></div></div>
+    <div class="mr"><span class="mm" style="color:var(--blue)">Month 1</span><div><div class="mt">Git fluent — green commits every single day</div><div class="md">Never commit to main. GitHub shows daily activity streak.</div></div></div>
+    <div class="mr"><span class="mm" style="color:var(--blue)">Month 2</span><div><div class="mt">40 SQL queries written from memory</div><div class="md">JOINs, GROUP BY, subqueries, indexes. Know query performance cost.</div></div></div>
+    <div class="mr"><span class="mm" style="color:var(--blue)">Month 2</span><div><div class="mt">100 problems + all 12 patterns identifiable</div><div class="md">See a new problem, identify pattern within 3 minutes.</div></div></div>
+  </div>
+  <div class="lbl">Month 3–4 — Full Stack gates</div>
+  <div class="card">
+    <div class="mr"><span class="mm" style="color:var(--green)">Month 3</span><div><div class="mt">React app with real API — deployed, shared on LinkedIn</div><div class="md">Your own idea. Not a tutorial copy.</div></div></div>
+    <div class="mr"><span class="mm" style="color:var(--green)">Month 4</span><div><div class="mt">Project 1 live — React + Spring Boot + PostgreSQL + JWT</div><div class="md">Real users can register and use it. Link on resume.</div></div></div>
+    <div class="mr"><span class="mm" style="color:var(--green)">Month 4</span><div><div class="mt">Both projects Dockerised — one command to run</div><div class="md">Anyone clones repo and runs instantly. Impresses every interviewer.</div></div></div>
+  </div>
+  <div class="lbl">Month 5 — AI + Cloud gates</div>
+  <div class="card">
+    <div class="mr"><span class="mm" style="color:var(--purple)">Month 5</span><div><div class="mt">AWS Cloud Practitioner certified</div><div class="md">Exam booked and passed. Goes on resume immediately.</div></div></div>
+    <div class="mr"><span class="mm" style="color:var(--purple)">Month 5</span><div><div class="mt">Project 3 — AI app live on AWS</div><div class="md">Full stack app with LLM feature. Real users can try it.</div></div></div>
+    <div class="mr"><span class="mm" style="color:var(--purple)">Month 5</span><div><div class="mt">ML model served via REST API</div><div class="md">Scikit-learn model as endpoint integrated into project.</div></div></div>
+  </div>
+  <div class="lbl">Month 6 — Job ready gates</div>
+  <div class="card">
+    <div class="mr"><span class="mm" style="color:var(--amber)">Month 6</span><div><div class="mt">CI/CD on all 3 projects — GitHub Actions green</div><div class="md">Every push auto-tests and auto-deploys.</div></div></div>
+    <div class="mr"><span class="mm" style="color:var(--amber)">Month 6</span><div><div class="mt">10 mock interviews completed</div><div class="md">On Pramp or interviewing.io. Recorded and reviewed.</div></div></div>
+    <div class="mr"><span class="mm" style="color:var(--amber)">Month 6</span><div><div class="mt">50+ applications sent</div><div class="md">Volume + quality + persistence = offer. Start Week 21.</div></div></div>
+    <div class="mr"><span class="mm" style="color:var(--amber-dk)">Month 6</span><div><div class="mt">🎉 First offer received</div><div class="md">Negotiate. Never accept the first number.</div></div></div>
+  </div>
+</div>
+
+<div id="resources" class="pg">
+  <div class="lbl">Phase 1 — Foundation</div>
+  <div class="card">
+    <div class="rrow"><div class="ricon" style="background:var(--blue-bg)">🟠</div><div><div class="rtitle">LeetCode</div><div class="rsub"><a href="https://leetcode.com" target="_blank">leetcode.com</a> — primary DSA practice</div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--blue-bg)">🎬</div><div><div class="rtitle">NeetCode.io</div><div class="rsub"><a href="https://neetcode.io" target="_blank">neetcode.io</a> — video explanation for every problem</div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--blue-bg)">📖</div><div><div class="rtitle">Pro Git Book</div><div class="rsub"><a href="https://git-scm.com/book" target="_blank">git-scm.com/book</a></div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--blue-bg)">🐧</div><div><div class="rtitle">Linux Journey</div><div class="rsub"><a href="https://linuxjourney.com" target="_blank">linuxjourney.com</a></div></div><span class="rtag">Free</span></div>
+  </div>
+  <div class="lbl">Phase 2 — Full Stack</div>
+  <div class="card">
+    <div class="rrow"><div class="ricon" style="background:var(--green-bg)">⚛️</div><div><div class="rtitle">React Official Docs</div><div class="rsub"><a href="https://react.dev" target="_blank">react.dev</a></div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--green-bg)">🌱</div><div><div class="rtitle">Amigoscode — Spring Boot (YouTube)</div><div class="rsub">Best free Spring Boot tutorial series</div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--green-bg)">🗄️</div><div><div class="rtitle">PostgreSQL Tutorial</div><div class="rsub"><a href="https://postgresqltutorial.com" target="_blank">postgresqltutorial.com</a></div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--green-bg)">🐳</div><div><div class="rtitle">TechWorld with Nana — Docker (YouTube)</div><div class="rsub">Best free Docker + docker-compose course</div></div><span class="rtag">Free</span></div>
+  </div>
+  <div class="lbl">Phase 3 — AI + Cloud</div>
+  <div class="card">
+    <div class="rrow"><div class="ricon" style="background:var(--purple-bg)">🐍</div><div><div class="rtitle">Automate the Boring Stuff with Python</div><div class="rsub"><a href="https://automatetheboringstuff.com" target="_blank">automatetheboringstuff.com</a></div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--purple-bg)">🤖</div><div><div class="rtitle">Fast.ai — Practical Deep Learning</div><div class="rsub"><a href="https://fast.ai" target="_blank">fast.ai</a></div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--purple-bg)">🔗</div><div><div class="rtitle">LangChain Docs + DeepLearning.AI</div><div class="rsub"><a href="https://python.langchain.com" target="_blank">python.langchain.com</a> + <a href="https://deeplearning.ai/short-courses" target="_blank">deeplearning.ai/short-courses</a></div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--purple-bg)">☁️</div><div><div class="rtitle">AWS Skill Builder</div><div class="rsub"><a href="https://skill.amazonaws.com" target="_blank">skill.amazonaws.com</a></div></div><span class="rtag">Free</span></div>
+  </div>
+  <div class="lbl">Phase 4 — DevOps + System Design</div>
+  <div class="card">
+    <div class="rrow"><div class="ricon" style="background:var(--amber-bg)">⚙️</div><div><div class="rtitle">TechWorld with Nana — Kubernetes (YouTube)</div><div class="rsub">Best free Kubernetes course</div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--amber-bg)">🏗️</div><div><div class="rtitle">System Design Primer</div><div class="rsub"><a href="https://github.com/donnemartin/system-design-primer" target="_blank">github.com/donnemartin/system-design-primer</a></div></div><span class="rtag">Free</span></div>
+    <div class="rrow"><div class="ricon" style="background:var(--amber-bg)">👥</div><div><div class="rtitle">Pramp + interviewing.io</div><div class="rsub">Free mock interviews with real engineers</div></div><span class="rtag">Free</span></div>
+  </div>
+</div>
+
+<div class="footer">Built for your 6-month FAANG journey · Full Stack + AI + Cloud · Start today 🚀</div>
+</div>
+<script>
+function sw(id,btn){document.querySelectorAll('.pg').forEach(e=>e.classList.remove('on'));document.querySelectorAll('.ntab').forEach(e=>e.classList.remove('on'));document.getElementById(id).classList.add('on');btn.classList.add('on');}
+function sph(id,el){document.querySelectorAll('.pcon').forEach(e=>e.classList.remove('on'));document.querySelectorAll('.ph').forEach(e=>e.classList.remove('on'));document.getElementById(id).classList.add('on');el.classList.add('on');}
+</script>
+</body>
+</html>
