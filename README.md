@@ -12,7 +12,3 @@ v
 v
 fv
 f
-v
-fv
-fv
-f
