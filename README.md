@@ -5,10 +5,3 @@
 Full Stack hunt with AI in 6 months
 nkjkjsvnnsss
 kfwkjwjkvnwlv
-
-
-
-v
-v
-fv
-f
